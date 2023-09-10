@@ -38,12 +38,11 @@ total = subtotal + taxamt + freight
 
 for line in csv_file:
 
+    subtotal = float(line[3])
+    taxamt = float(line[4])
+    freight = float(line[5])
+    
     if customer_id == line[0]:
-
-        subtotal = float(line[3])
-        taxamt = float(line[4])
-        freight = float(line[5])
-
         total = subtotal + taxamt + freight + total
 
     else:
@@ -52,9 +51,6 @@ for line in csv_file:
 
         total = 0
         customer_id = line[0]
-        subtotal = float(line[3])
-        taxamt = float(line[4])
-        freight = float(line[5])
 
         total = subtotal + taxamt + freight
 
