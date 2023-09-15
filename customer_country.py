@@ -7,7 +7,7 @@ customers = open("customers.csv", 'r')
 
 csv_file = csv.reader(customers)
 
-customer_country = open("customers_country.csv", 'w')
+customer_country = open("customer_country.csv", 'w')
 
 #skip the line
 next(csv_file)

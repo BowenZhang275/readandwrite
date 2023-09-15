@@ -30,20 +30,12 @@ total = 0
 firstline = next(csv_file)
 customer_id = firstline[0]
 
-subtotal = float(firstline[3])
-taxamt = float(firstline[4])
-freight = float(firstline[5])
-
-total = subtotal + taxamt + freight 
+total = float(firstline[3]) + float(firstline[4]) + float(firstline[5]) 
 
 for line in csv_file:
 
-    subtotal = float(line[3])
-    taxamt = float(line[4])
-    freight = float(line[5])
-    
     if customer_id == line[0]:
-        total = subtotal + taxamt + freight + total
+        total = float(line[3]) + float(line[4]) + float(line[5])  + total
 
     else:
         
@@ -52,7 +44,7 @@ for line in csv_file:
         total = 0
         customer_id = line[0]
 
-        total = subtotal + taxamt + freight
+        total = float(line[3]) + float(line[4]) + float(line[5]) 
 
 report.write(f"{customer_id}, {total:.2f} \n")
 
